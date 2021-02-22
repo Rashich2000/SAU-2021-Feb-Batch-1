@@ -1,0 +1,34 @@
+<mat-card  style="margin: 20px; width: 450px;  background-color:lavenderblush" 
+*ngFor="let info of infoItems; let i=index">
+    <div *ngIf="isClicked[i]">
+    <div>
+        <form [formGroup]="infoForm">
+            <mat-form-field style="margin: 10px;" appearance="fill">
+                <mat-label>Session Name</mat-label>
+                <input matInput  formControlName="sess_name" value={{info.session_name}}>
+              </mat-form-field>
+        
+              <mat-form-field  style="margin: 10px;"appearance="fill">
+                <mat-label>Instruction Name</mat-label>
+                <input matInput formControlName="instr_name">
+              </mat-form-field>
+        
+              <mat-form-field style="margin: 10px;" appearance="fill">
+                  <mat-label>Description</mat-label>
+                  <input matInput  formControlName="description">
+              </mat-form-field>
+            </form>
+    </div>
+    </div>
+    <div *ngIf="!isClicked[i]">
+    <mat-card-content>{{info.session_name}}</mat-card-content>
+    <mat-card-content>{{info.instructor_name}}</mat-card-content>
+    <mat-card-content>{{info.desc}}</mat-card-content>
+    </div>
+    
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="updateInfo(i)">Update</button>
+        <button mat-raised-button color="primary" (click)="deleteInfo(i)">Delete</button>
+    </mat-card-actions>
+
+</mat-card>

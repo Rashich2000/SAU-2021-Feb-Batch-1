@@ -1,0 +1,25 @@
+
+<div>
+    <form [formGroup]="infoForm">
+    <mat-form-field style="margin: 10px;" appearance="fill">
+        <mat-label>Session Name</mat-label>
+        <input matInput formControlName="sess_name">
+      </mat-form-field>
+
+      <mat-form-field  style="margin: 10px;"appearance="fill">
+        <mat-label>Instruction Name</mat-label>
+        <input matInput formControlName="instr_name">
+      </mat-form-field>
+
+      <mat-form-field style="margin: 10px;" appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description">
+      </mat-form-field>
+      <button mat-raised-button  color="primary" (click)="addToList()">Save</button>
+    </form>
+    <div>
+        {{ sess_name.value }}  
+        {{ instr_name.value }}
+        {{ description.value }}
+    </div>
+</div>
