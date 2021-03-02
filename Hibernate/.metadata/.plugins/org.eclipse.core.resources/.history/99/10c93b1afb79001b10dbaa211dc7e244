@@ -1,0 +1,29 @@
+package com.accolite.hibernate_ecommerce;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Supplier {
+	
+	private int sid;
+	private String supplierName;
+	
+	public int getSid() {
+		return sid;
+	}
+	
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	
+	public String getSupplierName() {
+		return supplierName;
+	}
+	
+	public void setSupplierName(String supplieryName) {
+		this.supplierName = supplierName;
+	}
+	
+	
+}

@@ -1,0 +1,48 @@
+package com.accolite.hibernate_manyToOne;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.accolite.hibernate_manyToOne.Employee;
+import com.accolite.hibernate_manyToOne.Department;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Scanner sc = new Scanner(System.in);
+    	Configuration con=new Configuration().configure().addAnnotatedClass(Employee.class);
+ 		SessionFactory sf=con.buildSessionFactory();
+ 		Session session= sf.openSession();
+ 		Transaction tx=session.beginTransaction();
+ 		System.out.println("Employee Details:\n");
+		Employee emp1=new Employee();
+		System.out.println("ID: ");
+		emp1.setId(sc.nextInt());
+		sc.nextLine();
+		System.out.println("Name: ");
+		emp1.setName(sc.nextLine());
+		System.out.println("Designation: ");
+		emp1.setDesignation(sc.nextLine());
+		Department dept1=new Department();
+		System.out.println("Dept ID: ");
+		dept1.setDeptId(sc.nextInt());
+		sc.nextLine();
+		System.out.println("Dept Name: ");
+		dept1.setDeptName(sc.nextLine());
+		sc.nextLine();
+		
+		dept1.getEmp.add(emp1);
+		
+		
+		
+    }
+}

@@ -1,0 +1,60 @@
+package com.accolite.hibernate_ecommerce;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.accolite.HibernateMorning.Employee;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Scanner sc = new Scanner(System.in);
+    	Configuration con=new Configuration().configure().addAnnotatedClass(Product.class).addAnnotatedClass(Supplier.class).addAnnotatedClass(Categories.class);
+ 		SessionFactory sf=con.buildSessionFactory();
+ 		Session session= sf.openSession();
+ 		Transaction tx=session.beginTransaction();
+ 		System.out.println("Product Details:\n");
+ 		for(int i=0;i<2;i++) {
+ 			Product prod=new Product();
+			System.out.println("ID: ");
+			prod.setPid(sc.nextInt());
+			sc.nextLine();			
+			System.out.println("\nProduct Name: ");
+			prod.setProductName(sc.nextLine());
+			//sc.nextLine();
+ 		}
+ 		
+ 		System.out.println("Categories Details:\n");
+ 		for(int i=0;i<2;i++) {
+ 			Categories cat=new Categories();
+			System.out.println("ID: ");
+			cat.setCid(sc.nextInt());
+			sc.nextLine();			
+			System.out.println("\nCategory Name: ");
+			cat.setCategoryName(sc.nextLine());
+			//sc.nextLine();
+ 		}
+ 		
+ 		System.out.println("Supplier Details:\n");
+ 		for(int i=0;i<2;i++) {
+ 			Supplier sup=new Supplier();
+			System.out.println("ID: ");
+			sup.setSid(sc.nextInt());
+			sc.nextLine();			
+			System.out.println("Supplier Name: ");
+			sup.setSupplierName(sc.nextLine());
+			//sc.nextLine();
+ 		}
+ 		
+ 		
+    }
+}
